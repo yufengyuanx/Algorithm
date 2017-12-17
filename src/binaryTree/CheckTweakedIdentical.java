@@ -1,0 +1,17 @@
+package binaryTree;
+
+import tools.TreeNode;
+
+public class CheckTweakedIdentical {
+	public boolean isTweakedIdentical(TreeNode one, TreeNode two) {
+		if (one == null && two == null) {
+			return true;
+		} else if (one == null || two == null) {
+			return false;
+		} else if (one.value != two.value) {
+			return false;
+		}
+		return isTweakedIdentical(one.left, two.left) && isTweakedIdentical(one.right, two.right) ||
+			   isTweakedIdentical(one.left, two.right) && isTweakedIdentical(one.right, two.left);
+	}
+}
