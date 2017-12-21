@@ -4,7 +4,7 @@ import java.awt.Point;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class LargestSetPointsPostiveSlope {
+public class LargestSetPointsPositiveSlope {
   
   public int largest(Point[] points) {
     // Assumptions: points is not null.

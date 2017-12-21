@@ -25,6 +25,10 @@ public class MaxPathSumBinaryTreeI {
 			max[0] = Math.max(max[0], left + right + root.value);
 			return Math.max(left, right) + root.value;
 		}
-		return root.left == null ? right + root.value : root.value;
+		
+		if (root.left == null) {
+		  return right + root.value;
+		}
+		return left + root.value;
 	}
 }
