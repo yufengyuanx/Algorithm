@@ -73,8 +73,18 @@ public class LRUCache<K, V> {
     return node.value;
   }
   
+  /**
+   * remove a node here means cut the node from prev and next node.
+   * and makes the prev and next = null
+   * so after remove it should be return a single node
+   * node.prev == null;
+   * node.next == null;
+   * 
+   * @param node
+   * @return node
+   */
   private Node<K, V> remove(Node<K, V> node) {
-    map.remove(node.key);
+    map.remove(node.key);  // first, remove it from the hashMap.
     if (node.prev != null) {
       node.prev.next = node.next;
     }
@@ -90,6 +100,13 @@ public class LRUCache<K, V> {
     node.next = node.prev = null;
     return node;
   }
+  
+  /**
+   * the append function for here is to append a node to the head of the list
+   * 
+   * @param node
+   * @return head;
+   */
   
   private Node<K, V> append(Node<K, V> node) {
     map.put(node.key, node);
