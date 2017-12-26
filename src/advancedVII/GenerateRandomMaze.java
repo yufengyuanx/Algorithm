@@ -77,16 +77,16 @@ public class GenerateRandomMaze {
     }
     
     public int moveY(int y, int times) {
-      return y = times * deltaY;
+      return y + times * deltaY;
     }
   }
   
   
   public static void main(String[] args) {
     GenerateRandomMaze test = new GenerateRandomMaze();
-    int[][] res = test.maze(6);
-    for (int i = 0; i < 6; i++) {
-      for (int j = 0; j < 6; j++) {
+    int[][] res = test.maze(5);
+    for (int i = 0; i < res.length; i++) {
+      for (int j = 0; j < res[0].length; j++) {
         System.out.print(res[i][j] + " ");
       }
       System.out.println();

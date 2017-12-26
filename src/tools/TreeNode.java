@@ -1,7 +1,8 @@
 package tools;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.List;
+
+import bfs.LayerByLayer;
 
 public class TreeNode {
 	public int value;
@@ -11,30 +12,42 @@ public class TreeNode {
 		this.value = value;
 	}
 	
-//	public TreeNode(String data) {
-//		return deserialize(data);
-//	}
+	
+	public static TreeNode fromLevelOrderSpecial(String[] str) {
+	  if (str == null || str.length == 0) {
+	    return null;
+	  }
+	  TreeNode root = null;
+	  return helper(root, str, 0);
+	}
 	
 	
-	public TreeNode deserialize(String data) {
-        if (data == "") return null;
-        Queue<TreeNode> q = new LinkedList<>();
-        String[] values = data.split(" ");
-        TreeNode root = new TreeNode(Integer.parseInt(values[0]));
-        q.add(root);
-        for (int i = 1; i < values.length; i++) {
-            TreeNode parent = q.poll();
-            if (!values[i].equals("n")) {
-                TreeNode left = new TreeNode(Integer.parseInt(values[i]));
-                parent.left = left;
-                q.add(left);
-            }
-            if (!values[++i].equals("n")) {
-                TreeNode right = new TreeNode(Integer.parseInt(values[i]));
-                parent.right = right;
-                q.add(right);
-            }
-        }
-        return root;
+	private static TreeNode helper(TreeNode root, String[] str, int index) {
+	  if (index > str.length - 1) {
+	    return root;
+	  }
+	  char ch = str[index].charAt(0);
+	  if (ch != '#') {
+	    root = new TreeNode(ch - '0');
+	    root.left = helper(root.left, str, index * 2 + 1);
+	    root.right = helper(root.right, str, index * 2 + 2);
+	  }
+	  return root;
+	  
+	}
+	
+	
+	public static void main(String[] args) {
+      TreeNode root = TreeNode.fromLevelOrderSpecial(new String[] {
+                                        "1", 
+                                    "2",    "#", 
+                                "3", "#",   "#", "#",
+                            "4"  });
+//      System.out.println(root.left.right.value);
+      
+      LayerByLayer test1 = new LayerByLayer();
+      List<List<Integer>> res = test1.layerByLayer(root);
+      System.out.println(res.toString());
+      
     }
 }
