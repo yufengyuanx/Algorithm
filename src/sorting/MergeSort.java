@@ -1,5 +1,7 @@
 package sorting;
 
+import java.util.Arrays;
+
 public class MergeSort {
 	public int[] mergeSort(int[] array) {
 		// check null array first.
@@ -33,16 +35,21 @@ public class MergeSort {
 		int rightIndex = mid + 1;
 		while (leftIndex <= mid && rightIndex <= right) {
 			if (helper[leftIndex] <= helper[rightIndex]) {
-				array[left++] = array[leftIndex++];
+				array[left++] = helper[leftIndex++];
 			} else {
-				array[left++] = array[rightIndex++];
+				array[left++] = helper[rightIndex++];
 			}
 		}
 		// if we still have some elements at left side, we need to copy them
 		while (leftIndex <= mid) {
-			array[left++] = array[leftIndex++];
+			array[left++] = helper[leftIndex++];
 		}
 		// if there are some elements at right side, we do not need to copy them
 		// because they are already in their position
 	}
+	
+	public static void main(String[] args) {
+	  MergeSort test = new MergeSort();
+      System.out.println(Arrays.toString(test.mergeSort(new int[] {3,2,1})));
+    }
 }
