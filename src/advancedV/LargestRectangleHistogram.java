@@ -9,13 +9,13 @@ public class LargestRectangleHistogram {
     // Note that the stack contains the "index"
     // not the "value" of the array.
     Deque<Integer> stack = new ArrayDeque<>();
-    
+
     for (int i = 0; i <= array.length; i++) {
       // we need a way of popping out all the elements in the stack.
       // at last, so that we explicitly add a bar of height 0.
-      
+
       int cur = i == array.length ? 0 : array[i];
-      
+
       while (!stack.isEmpty() && array[stack.peekFirst()] >= cur) {
         int height = array[stack.pollFirst()];
         // determine the left boundary of the largest rectangle.

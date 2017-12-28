@@ -6,7 +6,7 @@ import java.util.Comparator;
 import tools.Point;
 
 public class LargestSetPointsPositiveSlope {
-  
+
   public int largest(Point[] points) {
     // Assumptions: points is not null.
     // we need to sort the points first by y then by x
@@ -17,15 +17,15 @@ public class LargestSetPointsPositiveSlope {
     for (int i = 0; i < longest.length; i++) {
       for (int j = 0; j < i; j++) {
         if (points[j].x < points[i].x && points[j].y < points[i].y) {
-            longest[i] = Math.max(longest[i], longest[j]);
-          }
+          longest[i] = Math.max(longest[i], longest[j]);
         }
-        longest[i]++;
-        result = Math.max(result, longest[i]);
       }
-      return result == 1 ? 0 : result;
+      longest[i]++;
+      result = Math.max(result, longest[i]);
     }
-  
+    return result == 1 ? 0 : result;
+  }
+
   static class MyComparator implements Comparator<Point> {
     @Override
     public int compare(Point p1, Point p2) {

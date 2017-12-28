@@ -37,7 +37,7 @@ public class DeepCopyLinkedListRandom {
     }
     return dummy.next;
   }
-  
+
   // Method 2: Another there pass solution, not using HashMap,
   // but changing the original list structure during the copy
   // (it will changed back at the end).
@@ -63,7 +63,7 @@ public class DeepCopyLinkedListRandom {
       }
       cur = cur.next.next;
     }
-    
+
     // Third pass, extract the copied node.
     cur = head;
     RandomListNode dummy = new RandomListNode(0);
@@ -76,5 +76,5 @@ public class DeepCopyLinkedListRandom {
     }
     return dummy.next;
   }
-  
+
 }

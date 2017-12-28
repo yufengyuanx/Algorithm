@@ -2,6 +2,7 @@ package advancedIV;
 
 import tools.TreeNode;
 
+
 public class BinaryTreeUpsideDown {
   // Method 1: Recursion
   public TreeNode reverse(TreeNode root) {
@@ -15,12 +16,12 @@ public class BinaryTreeUpsideDown {
     root.right = null;
     return newRoot;
   }
-  
+
   // Method 2: Iterative
   public TreeNode reverseI(TreeNode root) {
     TreeNode prev = null;
     TreeNode prevRight = null;
-    
+
     while (root != null) {
       TreeNode next = root.left;
       TreeNode right = root.right;

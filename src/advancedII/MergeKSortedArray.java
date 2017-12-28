@@ -3,7 +3,6 @@ package advancedII;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-
 public class MergeKSortedArray {
   public int[] merge(int[][] arrayOfArrays) {
     // Assumptions: arrayOfArray is not null, none of the array is null either.
@@ -19,7 +18,7 @@ public class MergeKSortedArray {
         minHeap.offer(new Entry(i, 0, array[0]));
       }
     }
-    int [] result = new int[length];
+    int[] result = new int[length];
     int cur = 0;
     while (!minHeap.isEmpty()) {
       Entry temp = minHeap.poll();
@@ -32,17 +31,17 @@ public class MergeKSortedArray {
     }
     return result;
   }
-  
+
   static class MyComparator implements Comparator<Entry> {
     @Override
     public int compare(Entry e1, Entry e2) {
-     if (e1.value == e2.value) {
-       return 0;
-     }
-     return e1.value < e2.value ? -1 : 1;
+      if (e1.value == e2.value) {
+        return 0;
+      }
+      return e1.value < e2.value ? -1 : 1;
     }
   }
-  
+
   static class Entry {
     // The row number
     int x;
@@ -50,7 +49,7 @@ public class MergeKSortedArray {
     int y;
     // The corresponding value.
     int value;
-    
+
     Entry(int x, int y, int value) {
       this.x = x;
       this.y = y;

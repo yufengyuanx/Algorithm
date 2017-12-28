@@ -12,7 +12,7 @@ public class ReverseBits {
     }
     return num;
   }
-  
+
   public int reverseII(int num) {
     num = ((num & 0xFFFF0000) >>> 16) | ((num & 0x0000FFFF) << 16);
     num = ((num & 0xFF00FF00) >>> 8) | ((num & 0x00FF00FF) << 8);

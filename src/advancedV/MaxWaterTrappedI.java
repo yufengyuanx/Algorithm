@@ -10,7 +10,7 @@ public class MaxWaterTrappedI {
     int result = 0;
     int lmax = array[left];
     int rmax = array[right];
-    
+
     while (left < right) {
       if (array[left] <= array[right]) {
         result += Math.max(0, lmax - array[left]);

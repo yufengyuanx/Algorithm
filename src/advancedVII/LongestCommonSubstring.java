@@ -5,7 +5,7 @@ public class LongestCommonSubstring {
     // Assumptions: s, t are not null
     char[] sa = s.toCharArray();
     char[] ta = t.toCharArray();
-    
+
     // record the longest common substring's start position in s.
     int start = 0;
     // record the longest common substring's length.

@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+
 public class TwoSum {
   // Method 1: sort the array first, then use two pointers.
   public boolean existSum(int[] array, int target) {
@@ -22,8 +23,7 @@ public class TwoSum {
     }
     return false;
   }
-  
-  
+
   public boolean existSumII(int[] array, int target) {
     Set<Integer> set = new HashSet<Integer>();
     for (int num : array) {

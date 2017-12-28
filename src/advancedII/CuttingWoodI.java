@@ -28,4 +28,4 @@ public class CuttingWoodI {
     }
     return minCost[0][helper.length - 1];
   }
-}   
+}

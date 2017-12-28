@@ -26,7 +26,7 @@ public class LargestLengthProduct {
         return s0.length() < s1.length() ? 1 : -1;
       }
     });
-    
+
     int largest = 0;
     // note the order of constructing all the pairs,
     // we make our best to try largest product.
@@ -50,9 +50,9 @@ public class LargestLengthProduct {
       }
     }
     return largest;
-    
+
   }
-  
+
   private HashMap<String, Integer> getBitMasks(String[] dict) {
     HashMap<String, Integer> map = new HashMap<>();
     for (String str : dict) {

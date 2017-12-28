@@ -1,10 +1,14 @@
 package advancedVI;
 
-public class KthSmallestTwoSortedArray {
-  public int kth(int[] a, int[] b, int k) {
+public class MedianTwoSortedArray {
+  public double median(int[] a, int[] b, int k) {
     // Assumptions: a, b is not null, at least one of them
     // is not empty, k <= a.length + b.length, k >= 1.
-    return kth(a, 0, b, 0, k);
+    int total = a.length + b.length;
+    if (total % 2 == 0) {
+      return (kth(a, 0, b, 0, total / 2) + kth(a, 0, b, 0, total / 2 + 1)) / 2.0;
+    }
+    return kth(a, 0, b, 0, total / 2 + 1);
   }
 
   // in the subarray of a starting from index aleft, and
@@ -41,5 +45,4 @@ public class KthSmallestTwoSortedArray {
       return kth(a, aleft, b, bmid + 1, k - k / 2);
     }
   }
-
 }

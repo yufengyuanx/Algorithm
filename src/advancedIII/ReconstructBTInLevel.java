@@ -21,13 +21,13 @@ public class ReconstructBTInLevel {
     }
     return helper(lList, inMap);
   }
-  
+
   private TreeNode helper(List<Integer> level, Map<Integer, Integer> inMap) {
     if (level.isEmpty()) {
       return null;
     }
     TreeNode root = new TreeNode(level.remove(0));
-    List<Integer> left= new ArrayList<>();
+    List<Integer> left = new ArrayList<>();
     List<Integer> right = new ArrayList<>();
     for (int num : level) {
       if (inMap.get(num) < inMap.get(root.value)) {

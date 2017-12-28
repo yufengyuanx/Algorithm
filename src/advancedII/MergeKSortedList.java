@@ -25,7 +25,7 @@ public class MergeKSortedList {
     }
     return dummy.next;
   }
-  
+
   static class MyComparator implements Comparator<ListNode> {
     @Override
     public int compare(ListNode o1, ListNode o2) {

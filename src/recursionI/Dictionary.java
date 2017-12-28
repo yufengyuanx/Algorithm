@@ -1,5 +1,5 @@
 package recursionI;
 
 public interface Dictionary {
-	public Integer get(int index);
+  public Integer get(int index);
 }

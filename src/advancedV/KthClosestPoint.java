@@ -13,9 +13,8 @@ public class KthClosestPoint {
     // k >= 1 && k <= a.length * b.length * c.length.
     // we will need a min heap, with comparator to compare the distance.
     // Note that we are using the index in a,b,c as values in the List<Integer>.
-    PriorityQueue<List<Integer>> minHeap = new PriorityQueue<>(2 * k, 
-        new Comparator<List<Integer>>() {
-      
+    PriorityQueue<List<Integer>> minHeap = new PriorityQueue<>(2 * k, new Comparator<List<Integer>>() {
+
       @Override
       public int compare(List<Integer> o1, List<Integer> o2) {
         long d1 = distance(o1, a, b, c);
@@ -24,9 +23,9 @@ public class KthClosestPoint {
           return 0;
         }
         return d1 < d2 ? -1 : 1;
-      } 
+      }
     });
-    
+
     // Note that List's equals() method has been already overriden,
     // and it is comparing the actual elements in the List.
     Set<List<Integer>> visited = new HashSet<>();
@@ -57,7 +56,7 @@ public class KthClosestPoint {
     cur.set(2, c[cur.get(2)]);
     return cur;
   }
-  
+
   private long distance(List<Integer> point, int[] a, int[] b, int[] c) {
     long dis = 0;
     dis += a[point.get(0)] * a[point.get(0)];

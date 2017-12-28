@@ -9,10 +9,10 @@ public class ReconstructBSTPostorder {
     // Traversing position of the post order,
     // we traverse and construct the binary search tree
     // from the postOrder right to left.
-    int[] index = new int[] {post.length - 1};
+    int[] index = new int[] { post.length - 1 };
     return helper(post, index, Integer.MIN_VALUE);
   }
-  
+
   private TreeNode helper(int[] postorder, int[] index, int min) {
     // Since it is a binary search tree,
     // the "min" is actually the root,

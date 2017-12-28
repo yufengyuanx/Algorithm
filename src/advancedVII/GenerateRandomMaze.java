@@ -19,7 +19,7 @@ public class GenerateRandomMaze {
     generate(maze, 0, 0);
     return maze;
   }
-  
+
   public void generate(int[][] maze, int x, int y) {
     // get a random shuffle of all the possible directions,
     // and follow the shuffled order to do DFS & backtrack.
@@ -38,7 +38,7 @@ public class GenerateRandomMaze {
       }
     }
   }
-  
+
   // Get a random order of the directions.
   private void shuffle(Dir[] dirs) {
     for (int i = 0; i < dirs.length; i++) {
@@ -48,40 +48,34 @@ public class GenerateRandomMaze {
       dirs[i + index] = tmp;
     }
   }
-  
-  
+
   // check if the position (x,y) is within the maze and it is a wall.
   private boolean isValidWall(int[][] maze, int x, int y) {
-    return x >= 0 && 
-           x < maze.length && 
-           y >= 0 && 
-           y < maze[0].length && 
-           maze[x][y] == 1;
+    return x >= 0 && x < maze.length && y >= 0 && y < maze[0].length && maze[x][y] == 1;
   }
-  
+
   enum Dir {
-    
+
     NORTH(-1, 0), SOUTH(1, 0), EAST(0, -1), WEST(0, 1);
-    
+
     int deltaX;
     int deltaY;
-    
+
     Dir(int deltaX, int deltaY) {
       this.deltaX = deltaX;
       this.deltaY = deltaY;
     }
-    
+
     // move certain times of delta.
     public int moveX(int x, int times) {
       return x + times * deltaX;
     }
-    
+
     public int moveY(int y, int times) {
       return y + times * deltaY;
     }
   }
-  
-  
+
   public static void main(String[] args) {
     GenerateRandomMaze test = new GenerateRandomMaze();
     int[][] res = test.maze(5);
@@ -92,5 +86,5 @@ public class GenerateRandomMaze {
       System.out.println();
     }
   }
-  
+
 }

@@ -28,7 +28,7 @@ public class DeleteBST {
     }
     return root;
   }
-  
+
   private TreeNode deleteSmallest(TreeNode root) {
     while (root.left.left != null) {
       root = root.left;

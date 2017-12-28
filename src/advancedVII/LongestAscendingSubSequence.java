@@ -16,7 +16,7 @@ public class LongestAscendingSubSequence {
       // initialize dp[i] as 1, since the shortest one has length 1,
       longest[i] = 1;
       for (int j = 0; j < i; j++) {
-        // only when array[j] < array[i], it is possible to use the 
+        // only when array[j] < array[i], it is possible to use the
         // longest ascending subsequence ending at index j and array[i]
         // to form a new ascending subsequence.
         if (array[j] < array[i]) {
@@ -28,7 +28,7 @@ public class LongestAscendingSubSequence {
     }
     return result;
   }
-  
+
   // Method 2 : O(nlogn)
   public int longestII(int[] array) {
     if (array.length == 0) {
@@ -37,10 +37,10 @@ public class LongestAscendingSubSequence {
     // tbl[i]: the smallest ending value of all the ascending subsequences
     // with length i.
     int[] tbl = new int[array.length + 1];
-    // at the very beginning, the longest ascending subsequence we have 
+    // at the very beginning, the longest ascending subsequence we have
     // has length 1
     int result = 1;
-    
+
     tbl[1] = array[0];
     for (int i = 1; i < array.length; i++) {
       int index = find(tbl, 1, result, array[i]);
@@ -52,7 +52,7 @@ public class LongestAscendingSubSequence {
     }
     return result;
   }
-  
+
   // find the index of the "largest smaller value" to target in the tbl,
   // tbl is sorted in ascending order.
   private int find(int[] tbl, int left, int right, int target) {

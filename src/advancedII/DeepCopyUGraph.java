@@ -12,16 +12,15 @@ public class DeepCopyUGraph {
       return null;
     }
     HashMap<GraphNode, GraphNode> map = new HashMap<>();
-    for (GraphNode node: graph) {
+    for (GraphNode node : graph) {
       if (!map.containsKey(node)) {
-        map.put(node,  new GraphNode(node.value));
+        map.put(node, new GraphNode(node.value));
         DFS(node, map);
       }
     }
     return new ArrayList<GraphNode>(map.values());
   }
-  
-  
+
   private void DFS(GraphNode seed, HashMap<GraphNode, GraphNode> map) {
     GraphNode copy = map.get(seed);
     for (GraphNode nei : seed.neighbors) {

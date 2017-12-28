@@ -11,18 +11,18 @@ public class LRUCache<K, V> {
     Node<K, V> prev;
     K key;
     V value;
-  
+
     Node(K key, V value) {
       this.key = key;
       this.value = value;
     }
-    
+
     void update(K key, V value) {
       this.key = key;
       this.value = value;
     }
   }
-  
+
   // make it final for the pre-define size limit of the cache.
   private final int limit;
   // record all the time the head and tail of the double linked list.
@@ -31,12 +31,12 @@ public class LRUCache<K, V> {
   // maintains the relationship of key and its corresponding node
   // in the double linked list.
   private Map<K, Node<K, V>> map;
-  
+
   public LRUCache(int limit) {
     this.limit = limit;
     this.map = new HashMap<K, Node<K, V>>();
   }
-  
+
   public void set(K key, V value) {
     Node<K, V> node = null;
     // 1. if the key already in the cache, we need to update its value
@@ -51,7 +51,7 @@ public class LRUCache<K, V> {
       node = new Node<K, V>(key, value);
     } else {
       // 3. if the key is not in the cache and we don't have space,
-      // we need to evict the tail and reuse the node let it maintain 
+      // we need to evict the tail and reuse the node let it maintain
       // the new key, value and put it to head;
       node = tail;
       remove(node);
@@ -59,32 +59,29 @@ public class LRUCache<K, V> {
     }
     append(node);
   }
-  
-  
+
   public V get(K key) {
     Node<K, V> node = map.get(key);
     if (node == null) {
       return null;
     }
-    // even it is a read operation, it is still a write operation to 
+    // even it is a read operation, it is still a write operation to
     // the double linked list, and we need to move the node to head.
     remove(node);
     append(node);
     return node.value;
   }
-  
+
   /**
-   * remove a node here means cut the node from prev and next node.
-   * and makes the prev and next = null
-   * so after remove it should be return a single node
-   * node.prev == null;
-   * node.next == null;
+   * remove a node here means cut the node from prev and next node. and makes the
+   * prev and next = null so after remove it should be return a single node
+   * node.prev == null; node.next == null;
    * 
    * @param node
    * @return node
    */
   private Node<K, V> remove(Node<K, V> node) {
-    map.remove(node.key);  // first, remove it from the hashMap.
+    map.remove(node.key); // first, remove it from the hashMap.
     if (node.prev != null) {
       node.prev.next = node.next;
     }
@@ -100,14 +97,14 @@ public class LRUCache<K, V> {
     node.next = node.prev = null;
     return node;
   }
-  
+
   /**
    * the append function for here is to append a node to the head of the list
    * 
    * @param node
    * @return head;
    */
-  
+
   private Node<K, V> append(Node<K, V> node) {
     map.put(node.key, node);
     if (head == null) {

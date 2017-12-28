@@ -15,7 +15,7 @@ public class SpiralTraverseII {
     int n = matrix[0].length;
     int left = 0;
     int right = n - 1;
-    int up = 0; 
+    int up = 0;
     int down = m - 1;
     // three base case
     // 1. there is nothing left

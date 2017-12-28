@@ -27,7 +27,7 @@ public class MaxValuesSlidingWindows {
       if (!deque.isEmpty() && deque.peekFirst() <= i - k) {
         deque.pollFirst();
       }
-      deque.offerFirst(i);
+      deque.offerLast(i);
       if (i >= k - 1) {
         max.add(array[deque.peekFirst()]);
       }

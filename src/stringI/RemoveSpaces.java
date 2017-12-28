@@ -12,7 +12,7 @@ public class RemoveSpaces {
       // when we would ignore the current space character:
       // 1. we ignore all the space characters followed by
       // another space characters, only the first one will be remained.
-      // 2. we ignore also the space character if it is the 
+      // 2. we ignore also the space character if it is the
       // first character of the input string.
       if (array[i] == ' ' && (i == 0 || array[i - 1] == ' ')) {
         continue;
@@ -22,7 +22,7 @@ public class RemoveSpaces {
     // Post-processing: it is possible we still have one trailing
     // space character at the end.
     if (end > 0 && array[end - 1] == ' ') {
-      end --;
+      end--;
     }
     return new String(array, 0, end);
   }

@@ -25,7 +25,7 @@ public class RemoveCertainCharacters {
     // Convert the char[] subarray back to String Object.
     return new String(array, 0, slow);
   }
-  
+
   private Set<Character> buildSet(String t) {
     Set<Character> set = new HashSet<>();
     for (int i = 0; i < t.length(); i++) {

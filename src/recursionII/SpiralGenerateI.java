@@ -11,7 +11,7 @@ public class SpiralGenerateI {
     recursiveGenerate(matrix, 0, n, 1);
     return matrix;
   }
-  
+
   private void recursiveGenerate(int[][] matrix, int offset, int size, int num) {
     // the base case if when there is only 0 or 1 element left.
     if (size == 0) {
@@ -29,7 +29,7 @@ public class SpiralGenerateI {
     }
     recursiveGenerate(matrix, offset + 1, size - 2, num);
   }
-  
+
   // Method 2: Iterative Generate.
   public int[][] spiralGeneateII(int n) {
     int[][] matrix = new int[0][0];
@@ -39,7 +39,7 @@ public class SpiralGenerateI {
     int start = 0;
     int end = n - 1;
     int num = 1;
-    
+
     while (start < end) {
       for (int i = start; i <= end; i++) {
         matrix[start][i] = num++;
@@ -61,5 +61,5 @@ public class SpiralGenerateI {
     }
     return matrix;
   }
-  
+
 }
